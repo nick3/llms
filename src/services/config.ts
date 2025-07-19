@@ -13,6 +13,7 @@ export interface ConfigOptions {
 
 export interface AppConfig {
   [key: string]: any;
+  GITHUB_COPILOT_ACCESS_TOKEN?: string;
 }
 
 export class ConfigService {
@@ -49,9 +50,9 @@ export class ConfigService {
       this.loadEnvConfig();
     }
 
-    // if (this.options.useEnvironmentVariables) {
-    //   this.loadEnvironmentVariables();
-    // }
+    if (this.options.useEnvironmentVariables) {
+      this.loadEnvironmentVariables();
+    }
 
     if (this.config.LOG_FILE) {
       process.env.LOG_FILE = this.config.LOG_FILE;

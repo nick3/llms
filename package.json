@@ -18,7 +18,9 @@
     "dev": "nodemon",
     "start": "node dist/cjs/server.cjs",
     "start:esm": "node dist/esm/server.mjs",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "tsx mocha 'test/**/*.test.ts'",
+    "authorize-github-copilot": "tsx scripts/authorize-github-copilot.ts"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +49,7 @@
     "sinon": "^21.0.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.0"
+    "typescript-eslint": "^8.35.0",
+    "open": "^10.1.0"
   }
 }

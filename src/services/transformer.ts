@@ -124,8 +124,16 @@ export class TransformerService {
           if ('TransformerName' in TransformerStatic && typeof TransformerStatic.TransformerName === 'string') {
             this.registerTransformer(TransformerStatic.TransformerName, TransformerStatic);
           } else {
-            const transformerInstance = new TransformerStatic();
-            this.registerTransformer(transformerInstance.name!, transformerInstance);
+            const transformerInstance = new TransformerStatic(this.configService);
+            if (transformerInstance.name === 'GithubCopilot') {
+              const accessToken = this.configService.get<string>('GITHUB_COPILOT_ACCESS_TOKEN');
+              if (accessToken) {
+                const copilotInstance = new (TransformerStatic as any)(accessToken);
+                this.registerTransformer(copilotInstance.name, copilotInstance);
+              }
+            } else {
+              this.registerTransformer(transformerInstance.name!, transformerInstance);
+            }
           }
         })
     } catch (error) {
