@@ -6,7 +6,7 @@ import { OpenrouterTransformer } from "./openrouter.transformer";
 import { MaxTokenTransformer } from "./maxtoken.transformer";
 import { GroqTransformer } from "./groq.transformer";
 import { CleancacheTransformer } from "./cleancache.transformer";
-import { GithubCopilotTransformer } from "./githubCopilot";
+import { GithubCopilotTransformer } from "./githubcopilot.transformer";
 
 export default {
   AnthropicTransformer,
